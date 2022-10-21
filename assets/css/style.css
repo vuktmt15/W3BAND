@@ -70,15 +70,15 @@ html {
 }
 
 .col-half {
-  width: 50% !important;
+  width: 50%;
 }
 
 .col-third {
-  width: calc(100% / 3) !important;
+  width: calc(100% / 3);
 }
 
 .col-full {
-  width: 100% !important;
+  width: 100%;
 }
 
 /* ===================================== HEADER ==================================== */
@@ -105,6 +105,8 @@ html {
 
 #nav > li > a {
   color: #fff;
+  display: block;
+  width: 100%;
   text-transform: uppercase;
 }
 
@@ -148,11 +150,28 @@ html {
   float: right;
 }
 
+#header .mobile-menu-btn {
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
 #header .search-btn:hover {
   background-color: rgb(179, 53, 53);
   cursor: pointer;
 }
 
+#header .mobile-menu-btn:hover {
+  background-color: #ccc;
+}
+
+#header .mobile-menu-btn:hover .menu-icon {
+  color: rgba(0, 0, 0, 1);
+}
+
+#header .menu-icon,
 #header .search-icon {
   color: #fff;
   font-size: 16px;
@@ -194,7 +213,8 @@ html {
 
 #content .content-section {
   width: 800px;
-  padding: 64px 0px 112px;
+  max-width: 100%;
+  padding: 64px 16px 112px;
   margin: 0 auto;
 }
 
@@ -223,7 +243,7 @@ html {
 /* -------------- Members --------------- */
 
 #content .members-list {
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 #content .member-name {

@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Band</title>
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/font/themify-icons/themify-icons.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/phone.css" />
   </head>
   <body>
     <div id="main">
@@ -31,6 +32,10 @@
         </ul>
         <div class="search-btn">
           <i class="search-icon ti-search"></i>
+        </div>
+
+        <div class="mobile-menu-btn">
+          <i class="menu-icon ti-menu"></i>
         </div>
       </div>
       <div id="slider">
@@ -59,7 +64,7 @@
             ea commodo consequat.
           </p>
           <div class="members-list row">
-            <div class="col col-third text-center">
+            <div class="mt-16 s-col-full col col-third text-center">
               <p class="member-name">Santos</p>
               <img
                 src="./assets/img/bandmember.jpg"
@@ -67,7 +72,7 @@
                 class="member-img"
               />
             </div>
-            <div class="col col-third text-center">
+            <div class="mt-16 s-col-full col col-third text-center">
               <p class="member-name">Jame</p>
               <img
                 src="./assets/img/bandmember.jpg"
@@ -75,7 +80,7 @@
                 class="member-img"
               />
             </div>
-            <div class="col col-third text-center">
+            <div class="mt-16 s-col-full col col-third text-center">
               <p class="member-name">Lacos</p>
               <img
                 src="./assets/img/bandmember.jpg"
@@ -101,7 +106,7 @@
             </ul>
 
             <div class="places-list row">
-              <div class="col col-third">
+              <div class="col col-third s-col-full mt-16">
                 <img
                   src="./assets/img/newyork.jpg"
                   alt="newyork"
@@ -116,7 +121,7 @@
                   <a href="#^" class="btn">Buy Tickets</a>
                 </div>
               </div>
-              <div class="col col-third">
+              <div class="col col-third s-col-full mt-16">
                 <img
                   src="./assets/img/paris.jpg"
                   alt="newyork"
@@ -131,7 +136,7 @@
                   <a href="#^" class="btn">Buy Tickets</a>
                 </div>
               </div>
-              <div class="col col-third">
+              <div class="col col-third s-col-full mt-16">
                 <img
                   src="./assets/img/sanfran.jpg"
                   alt="newyork"
@@ -277,6 +282,35 @@
 
       close.addEventListener("click", () => {
         modalElement.classList.remove("open");
+      });
+    </script>
+
+    <script>
+      const header = document.querySelector("#header");
+      const heightHeader = header.clientHeight;
+      const mobileMenu = document.getElementsByClassName("mobile-menu-btn")[0];
+
+      mobileMenu.onclick = () => {
+        const isClosed = header.clientHeight === heightHeader;
+        if (isClosed) {
+          header.style.height = "auto";
+        } else {
+          header.style.height = null;
+        }
+      };
+
+      const menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+      menuItems.forEach((item) => {
+        item.onclick = function (event) {
+          const isParentMenu =
+            this.nextElementSibling &&
+            this.nextElementSibling.classList.contains("subnav");
+          if (!isParentMenu) {
+            header.style.height = null;
+          } else {
+            event.preventDefault();
+          }
+        };
       });
     </script>
   </body>
