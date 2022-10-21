@@ -33,6 +33,7 @@ html {
   margin-top: 24px;
   border: none;
   cursor: pointer;
+  text-align: center;
 }
 
 .pull-right {
@@ -50,6 +51,10 @@ html {
 
 .mt-16 {
   margin-top: 16px !important;
+}
+
+.mt-32 {
+  margin-top: 32px !important;
 }
 
 .row {
