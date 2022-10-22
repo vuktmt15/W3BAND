@@ -34,6 +34,8 @@ html {
   border: none;
   cursor: pointer;
   text-align: center;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .pull-right {
@@ -209,6 +211,7 @@ html {
 
 #slider .text-description {
   font-weight: 600;
+  text-shadow: 0 0 1px #000;
 }
 
 /* ===================================== CONTENT ==================================== */
